@@ -1,0 +1,13 @@
+.palel-primary
+{
+  border-color: #ee9538;
+}
+.panel-primary>.panel-heading
+{
+  background:#ee9538;
+
+}
+.panel-primary>.panel-body
+{
+  background-color: #EDEDED;
+}

@@ -1,7 +1,7 @@
 <body lass=" sticky-footer bg-dark" id="page-top">
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-  <a class="navbar-brand" href="../../../index.html">Salary Maker</a>
+  <a class="navbar-brand" [routerLink]="['/dashboard']">Salary Maker</a>
 
   <div class="collapse navbar-collapse nevbar-side" >
     <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
@@ -12,7 +12,7 @@
         </a>
       </li>
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-        <a class="nav-link" [routerLink]="['/employees']">
+        <a class="nav-link" (click)="showEmployeesList()" [routerLink]="['/employees']">
           <i class="fa fa-fw fa-area-chart"></i>
           <span class="nav-link-text">My Employees</span>
         </a>
@@ -29,12 +29,12 @@
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
         <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-          <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+          <i class="fa fa-fw fa-sign-out"></i>Panel</a>
       </li>
     </ul>
   </div>
 </nav>
-<div class="content-wrapper col-md-5">
+<div class="content-wrapper  col-md-10">
 <router-outlet></router-outlet>
 </div>
 </body>
