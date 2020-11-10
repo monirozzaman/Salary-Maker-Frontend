@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-salary-maker',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SalaryMakerComponent implements OnInit {
 
-  constructor() { }
+  private salaryMaker: FormGroup;
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-  }
+    this.salaryMaker = this.formBuilder.group({
+      basicSalary: [''],
+      dateAndYear: ['']
+    });
 
+  }
+  onSubmit(): void {
+  }
 }

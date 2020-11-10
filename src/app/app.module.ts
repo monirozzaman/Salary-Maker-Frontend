@@ -11,6 +11,12 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {Route, RouterModule} from '@angular/router';
 import { EmployeesListComponent } from './components/employees-list/employees-list.component';
 import { AddNewEmployeeComponent } from './components/add-new-employee/add-new-employee.component';
+import {FlashMessagesModule} from 'angular2-flash-messages';
+import {HttpClientModule} from '@angular/common/http';
+import {EmployeeService} from './services/employee.service';
+import {BankService} from './services/bank.service';
+
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,15 +26,21 @@ import { AddNewEmployeeComponent } from './components/add-new-employee/add-new-e
     SalaryMakerComponent,
     DashboardComponent,
     EmployeesListComponent,
-    AddNewEmployeeComponent
+    AddNewEmployeeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule
-
+    RouterModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FlashMessagesModule.forRoot(),
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    EmployeeService,
+    BankService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

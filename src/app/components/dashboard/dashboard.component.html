@@ -1,4 +1,3 @@
-
 <div class="row mb-3">
 
   <div class="col-xl-3 col-sm-6 py-2">
@@ -8,7 +7,7 @@
           <i class="fa fa-user fa-4x"></i>
         </div>
         <h6 class="text-uppercase">Total Employees</h6>
-        <h1 class="display-4">134</h1>
+        <h1 class="display-4"> {{ numberOfEmployee }} </h1>
       </div>
     </div>
   </div>
@@ -18,13 +17,13 @@
         <div class="rotate">
           <i class="fa fa-university fa-4x"></i>
         </div>
-        <h6 class="text-uppercase">Remaining Balance</h6>
-        <h1 class="display-4">&#2547; 87</h1>
+        <h6 class="text-uppercase">Current Balance of Company</h6>
+        <h1 class="display-4">&#2547; {{ currentBalanceOfCompany }}</h1>
       </div>
     </div>
   </div>
 
-  <div class="col-xl-3 col-sm-6 py-2">
+  <div class="col-xl-3 col-sm-6 py-2" (click)="setIsShowBankInputForm(true)">
     <div class="card text-white bg-warning h-100">
       <div class="card-body">
         <div class="rotate">
@@ -35,4 +34,16 @@
       </div>
     </div>
   </div>
+</div>
+<flash-messages></flash-messages>
+<div *ngIf="isShowBankInputForm">
+<div class="card col-lg-6 text-center">
+  <div class="card-body">
+    <h2>Add Balance on Company Bank Ac</h2>
+    <form (ngSubmit)="onSubmit()" [formGroup]="addBalance">
+      <input type="text" formControlName="amount" class="form-control search-slt mt-5" placeholder="Enter Basic salary of the lowest grade">
+      <button type="submit"  class="btn btn-danger wrn-btn mt-2">Add Balance</button>
+    </form>
+  </div>
+</div>
 </div>
