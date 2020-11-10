@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FlashMessagesService} from 'angular2-flash-messages';
 import {EmployeeService} from '../../services/employee.service';
 import {BankService} from '../../services/bank.service';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 
 
 @Component({
@@ -13,6 +13,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 export class DashboardComponent implements OnInit {
   private isShowBankInputForm = false;
   private numberOfEmployee;
+  private amount;
   private currentBalanceOfCompany;
   private addBalance: FormGroup;
   constructor( private flashMessagesService: FlashMessagesService,
@@ -22,12 +23,11 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.loadData();
     this.addBalance = this.formBuilder.group({
-      amount: ['']
+      amount: new FormControl('')
     });
   }
   setIsShowBankInputForm( value ): void {
     this.isShowBankInputForm = value;
-    this.flashMessagesService.show('Welcome To TheRichPost.com', { cssClass: 'alert-success', timeout: 2000 });
   }
   loadData(): void {
     this.employeeService.getEmployeesList().subscribe(res => {
@@ -38,8 +38,15 @@ export class DashboardComponent implements OnInit {
     });
   }
   onSubmit(): void {
-    this.bankService.addMoneyInMyBankAc('2454654', this.addBalance.controls['amount'].value()).subscribe(res => {
+    this.amount = this.addBalance.value.amount;
+    this.bankService.addMoneyInMyBankAc('2454654', this.amount ).subscribe(res => {
       this.setIsShowBankInputForm( false );
+      this.showSuccessMessage();
+
     });
+  }
+  showSuccessMessage(): void {
+    this.flashMessagesService.show('Welcome To TheRichPost.com', { cssClass: 'alert-success', timeout: 2000 });
+
   }
 }
