@@ -38,17 +38,32 @@ export class DashboardComponent implements OnInit {
     });
   }
   onSubmit(): void {
-    this.amount = this.addBalance.value.amount;
-    this.bankService.addMoneyInMyBankAc('42885412', this.amount).subscribe(res => {
-      this.setIsShowBankInputForm( false );
-      this.loadData();
-      this.showSuccessMessage('Balance Add Successful');
-
-    });
+    if (this.validator()) {
+      this.amount = this.addBalance.value.amount;
+      this.bankService.addMoneyInMyBankAc('42885412', this.amount).subscribe(res => {
+        this.setIsShowBankInputForm( false );
+        this.loadData();
+        this.showSuccessMessage('Balance Add Successful');
+      });
+    } else {
+      this.showErrorMessage('Empty Field');
+    }
   }
 
   showSuccessMessage(mgs): void {
     this.flashMessagesService.show(mgs, {cssClass: 'alert-success', timeout: 2000});
+
+  }
+
+  validator(): boolean {
+    if (this.addBalance.value.amount === '') {
+      return false;
+    }
+    return true;
+  }
+
+  showErrorMessage(mgs): void {
+    this.flashMessagesService.show(mgs, {cssClass: 'alert-danger', timeout: 2000});
 
   }
 }

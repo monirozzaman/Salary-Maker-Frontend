@@ -10,7 +10,7 @@ import {BankService} from '../../services/bank.service';
   styleUrls: ['./salary-maker.component.css']
 })
 export class SalaryMakerComponent implements OnInit {
-  p: number = 1;
+  private p = 1;
   private salaryMaker: FormGroup;
   private totalPaidSalary;
   private monthAndYear;
@@ -30,15 +30,28 @@ export class SalaryMakerComponent implements OnInit {
   }
 
   onSubmit(): void {
+    if (this.validator()) {
+      this.employeeService.getSalarySheet(this.salaryMaker.value.basicSalary, 'Nov-2020').subscribe(res => {
+        this.totalPaidSalary = res.totalPaidSalary;
+        this.remainBalance = res.remainBankBalance;
+        this.monthAndYear = res.monthAndYear;
+        this.salarySheet = res.sheet;
+      });
+    } else {
+      this.showErrorMessage('Empty Field');
+    }
 
-    this.employeeService.getSalarySheet(this.salaryMaker.value.basicSalary, 'Nov-2020').subscribe(res => {
+  }
 
-      this.totalPaidSalary = res.totalPaidSalary;
-      this.remainBalance = res.remainBankBalance;
-      this.monthAndYear = res.monthAndYear;
-      this.salarySheet = res.sheet;
-    });
+  validator(): boolean {
+    if (this.salaryMaker.value.basicSalary === '') {
+      return false;
+    }
+    return true;
+  }
 
+  showErrorMessage(mgs): void {
+    this.flashMessagesService.show(mgs, {cssClass: 'alert-danger', timeout: 2000});
 
   }
 }
