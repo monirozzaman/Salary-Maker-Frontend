@@ -14,7 +14,7 @@ export class SalaryMakerComponent implements OnInit {
   private salaryMaker: FormGroup;
   private totalPaidSalary;
   private monthAndYear;
-  private currentBalanceOfCompany;
+  private remainBalance;
   private salarySheet: Array<any> = [];
 
   constructor(private flashMessagesService: FlashMessagesService,
@@ -30,16 +30,15 @@ export class SalaryMakerComponent implements OnInit {
   }
 
   onSubmit(): void {
+
     this.employeeService.getSalarySheet(this.salaryMaker.value.basicSalary, 'Nov-2020').subscribe(res => {
 
       this.totalPaidSalary = res.totalPaidSalary;
+      this.remainBalance = res.remainBankBalance;
       this.monthAndYear = res.monthAndYear;
       this.salarySheet = res.sheet;
     });
 
-    this.bankService.getMyBankAcDetails('42885412').subscribe(res => {
-      this.currentBalanceOfCompany = res.currentBalance;
-    });
 
   }
 }
