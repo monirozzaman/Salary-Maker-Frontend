@@ -144,7 +144,7 @@ body.fixed-nav {
   text-overflow: ellipsis;
 }
 
-@media (min-width: 992px) {
+
   #mainNav .navbar-brand {
     width: 250px;
   }
@@ -197,34 +197,34 @@ body.fixed-nav {
   #mainNav .navbar-collapse .navbar-nav > .nav-item.dropdown .dropdown-menu > .dropdown-item > .dropdown-message {
     max-width: 300px;
   }
-}
+
 
 #mainNav.fixed-top .sidenav-toggler {
   display: none;
 }
 
-@media (min-width: 992px) {
-  #mainNav.fixed-top .navbar-sidenav {
-    height: calc(100vh - 112px);
-  }
-  #mainNav.fixed-top .sidenav-toggler {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    margin-top: calc(100vh - 56px);
-  }
-  #mainNav.fixed-top .sidenav-toggler > .nav-item {
-    width: 250px;
-    padding: 0;
-  }
-  #mainNav.fixed-top .sidenav-toggler > .nav-item > .nav-link {
-    padding: 1em;
-  }
-}
+/*@media (min-width: 992px) {*/
+/*  #mainNav.fixed-top .navbar-sidenav {*/
+/*    height: calc(100vh - 112px);*/
+/*  }*/
+/*  #mainNav.fixed-top .sidenav-toggler {*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    display: flex;*/
+/*    -webkit-flex-direction: column;*/
+/*    -ms-flex-direction: column;*/
+/*    flex-direction: column;*/
+/*    margin-top: calc(100vh - 56px);*/
+/*  }*/
+/*  #mainNav.fixed-top .sidenav-toggler > .nav-item {*/
+/*    width: 250px;*/
+/*    padding: 0;*/
+/*  }*/
+/*  #mainNav.fixed-top .sidenav-toggler > .nav-item > .nav-link {*/
+/*    padding: 1em;*/
+/*  }*/
+/*}*/
 
 #mainNav.fixed-top.navbar-dark .sidenav-toggler {
   background-color: #212529;
@@ -318,6 +318,10 @@ body.sidenav-toggled .navbar-sidenav .nav-link {
   width: 55px !important;
 }
 
+.header-name-design {
+  font-family: "Agency FB";
+  font-size: 20px;
+}
 body.sidenav-toggled .navbar-sidenav .nav-item:after,
 body.sidenav-toggled .navbar-sidenav .nav-link:after {
   display: none;
@@ -332,11 +336,11 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 }
 
 #mainNav.navbar-dark .navbar-collapse .navbar-sidenav .nav-link-collapse:after {
-  color: #868e96;
+  color: #274563;
 }
 
 #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item > .nav-link {
-  color: #868e96;
+  color: #274563;
 }
 
 #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item > .nav-link:hover {
@@ -345,7 +349,7 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 
 #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-second-level > li > a,
 #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-third-level > li > a {
-  color: #868e96;
+  color: #274563;
 }
 
 #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-second-level > li > a:focus, #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-second-level > li > a:hover,
@@ -358,22 +362,22 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
   color: #adb5bd;
 }
 
-@media (min-width: 992px) {
-  #mainNav.navbar-dark .navbar-collapse .navbar-sidenav {
-    background: #343a40;
-  }
-  #mainNav.navbar-dark .navbar-collapse .navbar-sidenav li.active a {
-    color: white !important;
-    background-color: #495057;
-  }
-  #mainNav.navbar-dark .navbar-collapse .navbar-sidenav li.active a:focus, #mainNav.navbar-dark .navbar-collapse .navbar-sidenav li.active a:hover {
-    color: white;
-  }
-  #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-second-level,
-  #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-third-level {
-    background: #343a40;
-  }
-}
+/*@media (min-width: 992px) {*/
+/*  #mainNav.navbar-dark .navbar-collapse .navbar-sidenav {*/
+/*    background: #fff;*/
+/*  }*/
+/*  #mainNav.navbar-dark .navbar-collapse .navbar-sidenav li.active a {*/
+/*    color: white !important;*/
+/*    background-color: #495057;*/
+/*  }*/
+/*  #mainNav.navbar-dark .navbar-collapse .navbar-sidenav li.active a:focus, #mainNav.navbar-dark .navbar-collapse .navbar-sidenav li.active a:hover {*/
+/*    color: white;*/
+/*  }*/
+/*  #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-second-level,*/
+/*  #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-third-level {*/
+/*    background: #343a40;*/
+/*  }*/
+/*}*/
 
 #mainNav.navbar-light .navbar-collapse .navbar-sidenav .nav-link-collapse:after {
   color: rgba(0, 0, 0, 0.5);
