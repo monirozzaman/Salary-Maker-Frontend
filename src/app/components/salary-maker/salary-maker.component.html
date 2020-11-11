@@ -55,7 +55,6 @@
         <th class="text-center border-top" colspan="8">Rank #{{ sheet.grade }}</th>
       </tr>
       <tr>
-        <th class="text-center" scope="col">#</th>
         <th class="text-center" scope="col">Employee Id</th>
         <th class="text-center" scope="col">Name</th>
         <th class="text-center" scope="col">Mobile no.</th>
@@ -66,8 +65,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let salary of sheet.salary; let i = index">
-        <th class="text-center" scope="row">{{ i + 1 }}</th>
+      <tr *ngFor="let salary of sheet.salary| paginate: { itemsPerPage: 5, currentPage: p }">
         <td class="text-center">{{ salary.employeeId }}</td>
         <td class="text-center">{{ salary.employeeName }}</td>
         <td class="text-center">{{ salary.employeePhoneNo }}</td>
@@ -76,6 +74,7 @@
         <td class="text-center">{{ salary.medicalAllowance }}</td>
         <td class="text-center">{{ salary.totalSalary }}</td>
       </tr>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </tbody>
     </table>
   </div>

@@ -10,7 +10,7 @@ import {BankService} from '../../services/bank.service';
   styleUrls: ['./salary-maker.component.css']
 })
 export class SalaryMakerComponent implements OnInit {
-
+  p: number = 1;
   private salaryMaker: FormGroup;
   private totalPaidSalary;
   private monthAndYear;
