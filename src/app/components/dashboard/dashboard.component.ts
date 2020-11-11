@@ -13,7 +13,7 @@ import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 export class DashboardComponent implements OnInit {
   private isShowBankInputForm = false;
   private numberOfEmployee;
-  private amount;
+  private amount: string;
   private currentBalanceOfCompany;
   private addBalance: FormGroup;
   constructor( private flashMessagesService: FlashMessagesService,
@@ -33,20 +33,22 @@ export class DashboardComponent implements OnInit {
     this.employeeService.getEmployeesList().subscribe(res => {
       this.numberOfEmployee = res.length;
     });
-    this.bankService.getMyBankAcDetails('1233').subscribe(res => {
+    this.bankService.getMyBankAcDetails('42885412').subscribe(res => {
       this.currentBalanceOfCompany = res.currentBalance;
     });
   }
   onSubmit(): void {
     this.amount = this.addBalance.value.amount;
-    this.bankService.addMoneyInMyBankAc('2454654', this.amount ).subscribe(res => {
+    this.bankService.addMoneyInMyBankAc('42885412', this.amount).subscribe(res => {
       this.setIsShowBankInputForm( false );
-      this.showSuccessMessage();
+      this.loadData();
+      this.showSuccessMessage('Balance Add Successful');
 
     });
   }
-  showSuccessMessage(): void {
-    this.flashMessagesService.show('Welcome To TheRichPost.com', { cssClass: 'alert-success', timeout: 2000 });
+
+  showSuccessMessage(mgs): void {
+    this.flashMessagesService.show(mgs, {cssClass: 'alert-success', timeout: 2000});
 
   }
 }
