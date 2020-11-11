@@ -18,6 +18,7 @@ import {BankService} from './services/bank.service';
 
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import {HttpClientModule} from '@angular/common/http';
     AddNewEmployeeComponent,
   ],
   imports: [
+    NgxPaginationModule,
     BrowserModule,
     AppRoutingModule,
     RouterModule,

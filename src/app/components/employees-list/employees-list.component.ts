@@ -12,6 +12,7 @@ import {FormBuilder} from '@angular/forms';
 export class EmployeesListComponent implements OnInit {
 
   private employeeList;
+  p: number = 1;
   private employeeListForRankTwo: Array<any> = [];
   private employeeListForRankThree: Array<any> = [];
   private employeeListForRankFour: Array<any> = [];

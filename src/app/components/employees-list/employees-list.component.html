@@ -4,7 +4,6 @@
   <table class="table table-striped">
     <thead>
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Employee Id</th>
       <th scope="col">Name</th>
       <th scope="col">Grade</th>
@@ -14,8 +13,8 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let employee of employeeList; let i= index">
-      <th scope="row">{{ i + 1}}</th>
+    <tr *ngFor="let employee of employeeList| paginate: { itemsPerPage: 7, currentPage: p }">
+
       <td>{{employee.employeeId}}</td>
       <td>{{employee.employeeName}}</td>
       <td>{{employee.gradeOfEmployee}}</td>
@@ -28,185 +27,8 @@
       </td>
 
     </tr>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </tbody>
   </table>
+
 </div>
-<!--</div>-->
-<!--<div *ngIf="employeeListForRankTwo.length != 0"  class="mt-5">-->
-<!--<div *ngIf="employeeListForRankTwo.length >1">-->
-<!--<div class="employees-table">-->
-<!--  <h3><strong>Rank 2</strong> <small><b> Employees</b></small></h3>-->
-<!--  <table class="table table-striped">-->
-<!--    <thead>-->
-<!--    <tr>-->
-<!--      <th scope="col">#</th>-->
-<!--      <th scope="col">Employee Id</th>-->
-<!--      <th scope="col">Name</th>-->
-<!--      <th scope="col">Grade</th>-->
-<!--      <th scope="col">Address</th>-->
-<!--      <th scope="col">Mobile no.</th>-->
-<!--      <th scope="col">Bank Details</th>-->
-<!--    </tr>-->
-<!--    </thead>-->
-<!--    <tbody>-->
-
-<!--    <tr *ngFor="let employee of employeeListForRankTwo; let i= index">-->
-<!--      <th scope="row">{{ i+ 1}}</th>-->
-<!--      <td>{{employee.employeeId}}</td>-->
-<!--      <td>{{employee.employeeName}}</td>-->
-<!--      <td>{{employee.gradeOfEmployee}}</td>-->
-<!--      <td>{{employee.employeeAddress}}</td>-->
-<!--      <td>{{employee.employeeMobileNo}}</td>-->
-<!--      <td>Bank Name: {{employee.bank.bankName}}<br>-->
-<!--        Branch Name: {{employee.bank.branchName}}<br>-->
-<!--        Ac No: {{employee.bank.accountNo}}<br>-->
-<!--        Ac Type: {{employee.bank.accountType}}-->
-<!--      </td>-->
-
-<!--    </tr>-->
-
-<!--    </tbody>-->
-<!--  </table>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-
-<!--<div *ngIf="employeeListForRankThree.length != 0>1"  class="mt-5">-->
-<!--<div class="employees-table">-->
-<!--  <h3><strong>Rank 3</strong> <small><b> Employees</b></small></h3>-->
-<!--  <table class="table table-striped">-->
-<!--    <thead>-->
-<!--    <tr>-->
-<!--      <th scope="col">#</th>-->
-<!--      <th scope="col">Employee Id</th>-->
-<!--      <th scope="col">Name</th>-->
-<!--      <th scope="col">Grade</th>-->
-<!--      <th scope="col">Address</th>-->
-<!--      <th scope="col">Mobile no.</th>-->
-<!--      <th scope="col">Bank Details</th>-->
-<!--    </tr>-->
-<!--    </thead>-->
-<!--    <tbody>-->
-<!--    <tr *ngFor="let employee of employeeListForRankThree; let i= index">-->
-<!--      <th scope="row">{{ i+ 1}}</th>-->
-<!--      <td>{{employee.employeeId}}</td>-->
-<!--      <td>{{employee.employeeName}}</td>-->
-<!--      <td>{{employee.gradeOfEmployee}}</td>-->
-<!--      <td>{{employee.employeeAddress}}</td>-->
-<!--      <td>{{employee.employeeMobileNo}}</td>-->
-<!--      <td>Bank Name: {{employee.bank.bankName}}<br>-->
-<!--        Branch Name: {{employee.bank.branchName}}<br>-->
-<!--        Ac No: {{employee.bank.accountNo}}<br>-->
-<!--        Ac Type: {{employee.bank.accountType}}-->
-<!--      </td>-->
-
-<!--    </tr>-->
-<!--    </tbody>-->
-<!--  </table>-->
-<!--</div>-->
-<!--</div>-->
-
-<!--<div *ngIf="employeeListForRankFour.length != 0"  class="mt-5">-->
-<!--<div class="employees-table">-->
-<!--  <h3><strong>Rank 4</strong> <small><b> Employees</b></small></h3>-->
-<!--  <table class="table table-striped">-->
-<!--    <thead>-->
-<!--    <tr>-->
-<!--      <th scope="col">#</th>-->
-<!--      <th scope="col">Employee Id</th>-->
-<!--      <th scope="col">Name</th>-->
-<!--      <th scope="col">Grade</th>-->
-<!--      <th scope="col">Address</th>-->
-<!--      <th scope="col">Mobile no.</th>-->
-<!--      <th scope="col">Bank Details</th>-->
-<!--    </tr>-->
-<!--    </thead>-->
-<!--    <tbody>-->
-<!--    <tr *ngFor="let employee of employeeListForRankFour; let i= index">-->
-<!--      <th scope="row">{{ i+ 1}}</th>-->
-<!--      <td>{{employee.employeeId}}</td>-->
-<!--      <td>{{employee.employeeName}}</td>-->
-<!--      <td>{{employee.gradeOfEmployee}}</td>-->
-<!--      <td>{{employee.employeeAddress}}</td>-->
-<!--      <td>{{employee.employeeMobileNo}}</td>-->
-<!--      <td>Bank Name: {{employee.bank.bankName}}<br>-->
-<!--        Branch Name: {{employee.bank.branchName}}<br>-->
-<!--        Ac No: {{employee.bank.accountNo}}<br>-->
-<!--        Ac Type: {{employee.bank.accountType}}-->
-<!--      </td>-->
-
-<!--    </tr>-->
-<!--    </tbody>-->
-<!--  </table>-->
-<!--</div>-->
-<!--</div>-->
-
-<!--<div *ngIf="employeeListForRankFive.length != 0"  class="mt-5">-->
-<!--<div class="employees-table">-->
-<!--  <h3><strong>Rank 5</strong> <small><b> Employees</b></small></h3>-->
-<!--  <table class="table table-striped">-->
-<!--    <thead>-->
-<!--    <tr>-->
-<!--      <th scope="col">#</th>-->
-<!--      <th scope="col">Employee Id</th>-->
-<!--      <th scope="col">Name</th>-->
-<!--      <th scope="col">Grade</th>-->
-<!--      <th scope="col">Address</th>-->
-<!--      <th scope="col">Mobile no.</th>-->
-<!--      <th scope="col">Bank Details</th>-->
-<!--    </tr>-->
-<!--    </thead>-->
-<!--    <tbody>-->
-<!--    <tr *ngFor="let employee of employeeListForRankFive; let i= index">-->
-<!--      <th scope="row">{{ i+ 1}}</th>-->
-<!--      <td>{{employee.employeeId}}</td>-->
-<!--      <td>{{employee.employeeName}}</td>-->
-<!--      <td>{{employee.gradeOfEmployee}}</td>-->
-<!--      <td>{{employee.employeeAddress}}</td>-->
-<!--      <td>{{employee.employeeMobileNo}}</td>-->
-<!--      <td>Bank Name: {{employee.bank.bankName}}<br>-->
-<!--        Branch Name: {{employee.bank.branchName}}<br>-->
-<!--        Ac No: {{employee.bank.accountNo}}<br>-->
-<!--        Ac Type: {{employee.bank.accountType}}-->
-<!--      </td>-->
-
-<!--    </tr>-->
-<!--    </tbody>-->
-<!--  </table>-->
-<!--</div>-->
-<!--</div>-->
-
-<!--<div *ngIf="employeeListForRankSix.length != 0" class="mt-5">-->
-<!--<div class="employees-table">-->
-<!--  <h3><strong>Rank 6</strong> <small><b> Employees</b></small></h3>-->
-<!--  <table class="table table-striped">-->
-<!--    <thead>-->
-<!--    <tr>-->
-<!--      <th scope="col">#</th>-->
-<!--      <th scope="col">Employee Id</th>-->
-<!--      <th scope="col">Name</th>-->
-<!--      <th scope="col">Grade</th>-->
-<!--      <th scope="col">Address</th>-->
-<!--      <th scope="col">Mobile no.</th>-->
-<!--      <th scope="col">Bank Details</th>-->
-<!--    </tr>-->
-<!--    </thead>-->
-<!--    <tbody>-->
-<!--    <tr *ngFor="let employee of employeeListForRankSix ; let i= index">-->
-<!--      <th scope="row">{{ i+ 1}}</th>-->
-<!--      <td>{{employee.employeeId}}</td>-->
-<!--      <td>{{employee.employeeName}}</td>-->
-<!--      <td>{{employee.gradeOfEmployee}}</td>-->
-<!--      <td>{{employee.employeeAddress}}</td>-->
-<!--      <td>{{employee.employeeMobileNo}}</td>-->
-<!--      <td>Bank Name: {{employee.bank.bankName}}<br>-->
-<!--        Branch Name: {{employee.bank.branchName}}<br>-->
-<!--        Ac No: {{employee.bank.accountNo}}<br>-->
-<!--        Ac Type: {{employee.bank.accountType}}-->
-<!--      </td>-->
-
-<!--    </tr>-->
-<!--    </tbody>-->
-<!--  </table>-->
-<!--</div>-->
-<!--</div>-->
