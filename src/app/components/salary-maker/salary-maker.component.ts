@@ -36,6 +36,10 @@ export class SalaryMakerComponent implements OnInit {
         this.remainBalance = res.remainBankBalance;
         this.monthAndYear = res.monthAndYear;
         this.salarySheet = res.sheet;
+      }, error => {
+        if (error.status === 406) {
+          this.showErrorMessage('Insufficient Fund');
+        }
       });
     } else {
       this.showErrorMessage('Empty Field');
